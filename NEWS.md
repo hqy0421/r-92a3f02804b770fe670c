@@ -1,5 +1,15 @@
 # tsibble (development version)
 
+* New `collect_gets()` collects a fixed list of GET requests concurrently
+  across sites. It respects global and per-origin in-flight limits and
+  per-origin initiation intervals, pauses an origin (first attempts and
+  retries alike) for `Retry-After` (delta-seconds or HTTP-date) on 429/503
+  without shortening an existing pause, and never lets waiting requests hold
+  in-flight slots, so one site's rate limiting doesn't block others. Each
+  request identifier gets exactly one terminal state after bounded attempts;
+  successful responses are parsed into their declared type and composed into
+  a native result vector keyed by id, while failures keep the response status
+  and reason.
 * Fixed `format.yearmonth()` incorrectly offseting years for non-week formats (e.g. `format = "%Y %b"`)
 * Fixed `as.ts()` failing for weekly (`yearweek`) tsibbles with recent versions of lubridate.
 * Fixed `interval_pull()` for `POSIXct` indices spaced by whole days, which

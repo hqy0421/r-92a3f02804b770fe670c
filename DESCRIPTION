@@ -36,8 +36,9 @@ URL: https://tsibble.tidyverts.org, https://github.com/tidyverts/tsibble
 BugReports: https://github.com/tidyverts/tsibble/issues
 Depends: 
     R (>= 3.2.0)
-Imports: 
+Imports:
     anytime (>= 0.3.1),
+    curl,
     dplyr (>= 1.1.0),
     generics,
     lifecycle,
@@ -53,6 +54,7 @@ Suggests:
     knitr,
     nanotime,
     nycflights13 (>= 1.0.0),
+    processx,
     rmarkdown,
     scales (>= 1.1.0),
     spelling,

@@ -104,6 +104,13 @@ reference:
     - as.ts.tbl_ts
     - as_tibble.tbl_ts
 
+- title: Data collection
+  desc: >
+    `collect_gets()` collects a fixed list of GET requests across sites,
+    respecting global and per-origin rate limits and `Retry-After` pauses.
+  contents:
+    - collect_gets
+
 - title: Data
   contents:
     - pedestrian
